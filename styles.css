@@ -71,7 +71,7 @@
       }
   }
 
-  .header-container__menu p {
+  .header-container__menu a {
     
     display: none;
 
@@ -80,6 +80,7 @@
     font-weight: 300;
         display: block;
         font-size: 18px;
+        text-decoration: none;
         text-transform: uppercase;
         line-height: 24px;
         color: #ffffff;
@@ -236,15 +237,16 @@
 
 .main-container-img img {
   width: 100%;
-  max-width: 603px;
+  max-width: 683px;
   height: auto;
   background-repeat: no-repeat;
+  margin: 0 auto;
 }
 
 
 .main-container-img .bgvideo2 {
   left: 0;
-  min-width: 100%;
+  max-width: 683px;
   position: absolute;
   top: 2%;
   width: 100%;
@@ -255,7 +257,7 @@
 
 .sticky-content.fixed {
   position: fixed;
-  top: 25%;
+  top: 22%;
   left: 0;
   right: 0;
 }
@@ -268,7 +270,7 @@
   margin-top: 50px;
   padding-bottom: 140px;
   @media (min-width: 768px) {
-      padding: 40px 0 0;
+      padding: 40px 40px;
       margin-top: 344px;
       padding-bottom: 0;
     }
@@ -354,8 +356,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+  padding-bottom: 200px;
   @media (min-width: 768px) {
     justify-content: space-between;
+    padding-bottom: 300px;
   }
 
   @media (min-width: 1440px) {
@@ -367,7 +371,6 @@
   font-family: "Roboto Flex", Arial, Helvetica, sans-serif;
   width: 100%;
   margin: 0;
-  padding-bottom: 400px;
   display: flex;
   flex-direction: row;
   color: rgba(255, 255, 255, 1);
@@ -684,11 +687,64 @@ display: none;
 
 
  
-.main-container-preloader img{
+.preloader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
   width: 100%;
   height: 100%;
-  z-index: 1099;
-  margin: 0 auto;
-  position: relative;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  background-color: rgba(25, 25, 25, 1);
+  transition: all 0.5s;
+  opacity: 1;
+}
 
+.preloader-remove {
+  opacity: 0;
+  z-index: -10;
+}
+
+
+
+.wave span {
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  font-size: 30px;
+  line-height: 32px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  animation: wave 2s infinite calc(.1s * var(--i));
+  @media (min-width: 768px) {
+    font-size: 70px;
+   }
+}
+
+.wave span:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: bottom;
+  transform: rotateX(180deg);
+  line-height: 1em;
+  background: linear-gradient(0deg, #b236c0 0, rgba(255, 255, 255, 0) 80%);
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0);
+  opacity: 0.2;
+}
+
+@keyframes wave {
+     0%, 40%, 100% {
+      transform: translateY(0);
+     }
+     20% {
+      transform: translateY(-20px);
+     }
+}
+
+.main-container-preloader img{
+  width: 100%;
 }

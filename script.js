@@ -23,3 +23,7 @@ var StickyElement = function(node){
     $(window).on('scroll', onScroll);
 };
 var sticky = new StickyElement($('.sticky-element'));
+
+window.onload = function() {
+    document.querySelector('.preloader').classList.add("preloader-remove");
+};
